@@ -11,9 +11,12 @@ from fsm import *
 from random import random, randrange
 
 class Event(FSM.Event):
+    """ Events are enumerated values of this class.  A and B are not used
+        in this example """
     Next_State, A, B  = range(3)
 
 class State_1(State.Atomic):
+    """ State_1 uses 'entry' to set a timer. """
     def entry(self):
         self.setTimer(1*SEC, Event.Next_State)  # generate event based on timer
         self.log("State_1")

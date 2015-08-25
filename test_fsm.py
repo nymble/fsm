@@ -40,6 +40,7 @@ class Green(Light):
     
 class StopLight(State.Composite):
     subStates = (Red, Yellow, Green) # First in list is the initial state class
+    
     #         state    event        -> nextState   actionList
     ttable = {(Red,    Event.TimeOut): (Green,      ()),
               (Green,  Event.TimeOut): (Yellow,     ()),

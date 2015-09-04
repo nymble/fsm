@@ -9,10 +9,10 @@
         Atomic:    Single state, actions defined as class methods
         Composite  Multiple Atomic states.  Transitions and actions determined
                    by a state transition table. Only one state in composite is active at a time
-        Parallel   Multiple parallel stae machines. Event sent to paralel goes
+        Parallel   Multiple parallel state machines. Events sent to paralel goes
                    to all internal states.
      
-    Clock time of states may be made asynchronous to other sates to support
+    Clock time of states may be made asynchronous to other states to support
     simulation of systems with clock drift.
      
     References:
@@ -35,6 +35,7 @@ from heapq import heappush, heappop
 NSEC =          1 # nanoseconds are the base time unit in the simulation
 USEC =  1000*NSEC # microsecond in units of nanoseconds
 MSEC =  1000*USEC # miliseconds in units of nanonseconds
+TU   =  1024*USEC # IEEE 802.11 Time Unit
 SEC  =  1000*MSEC # seconds in nsec counts
 HOUR =    60*SEC  # 
 DAY  =    24*HOUR #
@@ -163,8 +164,8 @@ class State(object):
             return self.clock.time()
              
         def setClock(self, time=0, drift=0, _clock=None):
-            """ Sets a clock.  Once set, clock is no longer tied to the
-                reference clock and all substates are changed to the new clock """
+            """ Sets the local clock.  Once set, clock is no longer tied to the
+                parent clock and all substates are changed to the new clock """
             if _clock == None:
                 _clock = Clock(time, drift) # create and set
             self.clock = _clock

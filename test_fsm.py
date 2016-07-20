@@ -85,7 +85,7 @@ class TestFSM(unittest.TestCase):
         s3 = State.Parallel(states=(s1,s2))       
         s4 = StopLight()
         s5 = State.Parallel(states=(s3,s4))
-        # s2 uses reference clock, s1 local
+        # s2 uses reference clock, s1 drifts
         s1.setClock( time=10, drift=-5*PPM )
         self.fsm.run(steps=2) 
         self.childDump(s5)

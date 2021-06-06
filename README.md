@@ -1,4 +1,5 @@
-fsm.py
+#fsm.py
+
     An object oriented finite state machine library based on UML state machines.
     The objective of this library is to provide compact readable definitions
     of complex state machines.

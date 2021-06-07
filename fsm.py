@@ -16,7 +16,7 @@
     simulation of systems with clock drift.
      
     References:
-        http://www.slideshare.net/erant/uml-statechart-diagrams
+        https://en.wikipedia.org/wiki/UML_state_machine
     
     to do:
      - timers cancel function
@@ -26,7 +26,7 @@
        make simulated a special setup
      - more unit tests
  
-    Copyright Paul A. Lambert 2014
+    Copyright Paul A. Lambert 2014, 2021
 
 """
 from heapq import heappush, heappop

@@ -319,7 +319,7 @@ class State(object):
 
 
 class MasterClock():
-    """ Reference clock. Must be updeted by event queue """
+    """ Reference clock. Must be updated by event queue """
     def __init__(self, time=0):
         self.__time = long(time)
         
@@ -372,7 +372,7 @@ class Clock():
     
     def updateLocalTimeByDelta(self, deltaTime):
         """ move local time forward by deltaTime and reference to newTime
-            if cock has been reset, delta is still full duration
+            if clock has been reset, delta is still full duration
         """
         assert deltaTime >= 0
         self.__time += deltaTime
